@@ -1,8 +1,7 @@
 {
   "name": "brain_games_alex-r",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "test project",
-  "main": "index.js",
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
   },
