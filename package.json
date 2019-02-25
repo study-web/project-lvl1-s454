@@ -1,6 +1,6 @@
 {
   "name": "brain_games_alex-r",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "test project",
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
@@ -9,7 +9,6 @@
     "dist"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublishOnly": "npm run build"
   },
@@ -17,6 +16,11 @@
     "type": "git",
     "url": "git+https://github.com/study-web/project-lvl1-s454.git"
   },
+  "keywords": [
+    "brain",
+    "games",
+    "alex-r"
+  ],
   "author": "alex",
   "license": "ISC",
   "bugs": {
