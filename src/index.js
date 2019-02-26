@@ -6,4 +6,3 @@ export const talkToUser = () => {
   console.log(`Hello, ${name}!`);
 };
 
-talkToUser();
