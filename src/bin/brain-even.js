@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import honestyCheck from '../honesty-check';
+import even from '../games/even';
 
-honestyCheck();
+even();

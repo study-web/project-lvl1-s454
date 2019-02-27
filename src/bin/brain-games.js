@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import talkToUser from '..';
+import games from '../games/games';
 
-talkToUser();
+games();
