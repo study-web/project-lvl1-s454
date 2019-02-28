@@ -14,6 +14,7 @@ const genTests = (genTest, countTests) => {
 export default (genTest, message) => {
   console.log('Welcome to the Brain Games!');
   console.log(message);
+  console.log();
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!\n`);
   const countTests = 3;
