@@ -1,8 +1,8 @@
 import runGames from '..';
-import genNumber from '../untils';
+import { genNumber } from '../untils';
 
 export default () => {
-  const message = 'Answer "yes" if number even otherwise answer "no".';
+  const message = 'Answer "yes" if number even otherwise answer "no".\n';
   const genTest = () => {
     const num = genNumber(0, 20);
     const answ = num % 2 ? 'no' : 'yes';
