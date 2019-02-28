@@ -1,12 +1,12 @@
-import { genNumber, runGames } from '..';
+import runGames from '..';
+import { genNumber } from '../untils';
 
 export default () => {
-  console.log('Welcome to the Brain Games!');
-  console.log('Answer "yes" if number even otherwise answer "no".\n');
-
-  const countRound = 3;
-  runGames(() => {
+  const message = 'Answer "yes" if number even otherwise answer "no".\n';
+  const genTest = () => {
     const num = genNumber(0, 20);
-    return [num, num % 2 ? 'no' : 'yes'];
-  }, countRound);
+    const answ = num % 2 ? 'no' : 'yes';
+    return [num, answ];
+  };
+  runGames(genTest, message);
 };

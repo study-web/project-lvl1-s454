@@ -1,7 +1,5 @@
 import readlineSync from 'readline-sync';
 
-export const genNumber = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-
 const genTests = (genTest, countTests) => {
   const inter = (acc, i) => {
     if (i + 1 > countTests) {
@@ -13,14 +11,16 @@ const genTests = (genTest, countTests) => {
   return inter([], 0);
 };
 
-export const runGames = (genTest, countTests) => {
+export default (genTest, message) => {
+  console.log('Welcome to the Brain Games!');
+  console.log(message);
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!\n`);
-
-  if (countTests < 1) {
+  const countTests = 3;
+  const tests = genTests(genTest, countTests);
+  if (message === '') {
     return;
   }
-  const tests = genTests(genTest, countTests);
   const quest = 0;
   const answ = 1;
   const inter = (count, i) => {
@@ -30,7 +30,8 @@ export const runGames = (genTest, countTests) => {
     }
     const userAnswer = readlineSync.question(`Ouestion ${tests[i][quest]}\nYour answer: `);
     if (userAnswer !== tests[i][answ]) {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${tests[i][answ]}'.\nLet's try again, ${name}!`);
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${tests[i][answ]}'.`);
+      console.log(`Let's try again, ${name}!`);
       return;
     }
     console.log('Correct!');

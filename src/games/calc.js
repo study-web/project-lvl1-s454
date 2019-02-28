@@ -1,11 +1,9 @@
-import { genNumber, runGames } from '..';
+import runGames from '..';
+import { genNumber } from '../untils';
 
 export default () => {
-  console.log('Welcome to the Brain Games!');
-  console.log('What is the result of the expression?\n');
-
-  const countRound = 3;
-  runGames(() => {
+  const message = 'What is the result of the expression?\n';
+  const genTest = () => {
     const firstN = genNumber(0, 10);
     const secondN = genNumber(0, 10);
     const oper = genNumber(0, 3);
@@ -23,5 +21,6 @@ export default () => {
         answ = String(firstN * secondN);
     }
     return [quest, answ];
-  }, countRound);
+  };
+  runGames(genTest, message);
 };
