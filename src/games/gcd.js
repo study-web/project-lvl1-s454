@@ -1,5 +1,5 @@
 import runGames from '..';
-import genNumber from '../untils';
+import genNumber from '../utils';
 
 const gcd = (x, y) => {
   if (x !== 0) {
@@ -11,11 +11,11 @@ const gcd = (x, y) => {
 export default () => {
   const message = 'Find the greatest common divisor of given numbers.';
   const genTest = () => {
-    const firstN = genNumber(0, 30);
-    const secondN = genNumber(0, 30);
-    const answ = String(gcd(firstN, secondN));
-    const quest = `${firstN} ${secondN}`;
-    return [quest, answ];
+    const firstNum = genNumber(0, 30);
+    const secondNum = genNumber(0, 30);
+    const answer = String(gcd(firstNum, secondNum));
+    const question = `${firstNum} ${secondNum}`;
+    return [question, answer];
   };
   runGames(genTest, message);
 };

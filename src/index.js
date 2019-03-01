@@ -1,42 +1,35 @@
 import readlineSync from 'readline-sync';
 
-const genTests = (genTest, countTests) => {
-  const inter = (acc, i) => {
-    if (i + 1 > countTests) {
-      return acc;
-    }
-    acc[i] = genTest();
-    return inter(acc, i + 1);
-  };
-  return inter([], 0);
-};
+const countTests = 3;
 
-export default (genTest, message) => {
+export default (genTest, gameMessage) => {
   console.log('Welcome to the Brain Games!');
-  console.log(message);
+  console.log(gameMessage);
   console.log();
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!\n`);
-  const countTests = 3;
-  const tests = genTests(genTest, countTests);
-  if (message === '') {
-    return;
-  }
-  const quest = 0;
-  const answ = 1;
-  const inter = (count, i) => {
-    if (i + 1 > count) {
-      console.log(`Congratulations, ${name}!`);
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!\n`);
+
+  const questionIndex = 0;
+  const answerIndex = 1;
+
+  const inter = (i) => {
+    if (i + 1 > countTests) {
+      console.log(`Congratulations, ${userName}!`);
       return;
     }
-    const userAnswer = readlineSync.question(`Ouestion ${tests[i][quest]}\nYour answer: `);
-    if (userAnswer !== tests[i][answ]) {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${tests[i][answ]}'.`);
-      console.log(`Let's try again, ${name}!`);
+
+    const test = genTest();
+    const rightAnswer = test[answerIndex];
+    const userAnswer = readlineSync.question(`Ouestion ${test[questionIndex]}\nYour answer: `);
+
+    if (userAnswer !== rightAnswer) {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`);
+      console.log(`Let's try again, ${userName}!`);
       return;
     }
+
     console.log('Correct!');
-    inter(count, i + 1);
+    inter(i + 1);
   };
-  inter(countTests, 0);
+  inter(0);
 };
