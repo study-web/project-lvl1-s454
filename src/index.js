@@ -9,18 +9,16 @@ export default (genTest, gameMessage) => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!\n`);
 
-  const questionIndex = 0;
-  const answerIndex = 1;
-
   const inter = (i) => {
-    if (i + 1 > countTests) {
+    if (i >= countTests) {
       console.log(`Congratulations, ${userName}!`);
       return;
     }
 
-    const test = genTest();
-    const rightAnswer = test[answerIndex];
-    const userAnswer = readlineSync.question(`Ouestion ${test[questionIndex]}\nYour answer: `);
+    let question = '';
+    let rightAnswer = '';
+    [question, rightAnswer] = genTest();
+    const userAnswer = readlineSync.question(`Ouestion ${question}\nYour answer: `);
 
     if (userAnswer !== rightAnswer) {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`);
