@@ -15,9 +15,7 @@ export default (genTest, gameMessage) => {
       return;
     }
 
-    let question = '';
-    let rightAnswer = '';
-    [question, rightAnswer] = genTest();
+    const [question, rightAnswer] = genTest();
     const userAnswer = readlineSync.question(`Ouestion ${question}\nYour answer: `);
 
     if (userAnswer !== rightAnswer) {
