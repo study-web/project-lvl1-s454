@@ -3,28 +3,30 @@ import genNumber from '../utils';
 
 const progressionLength = 10;
 
-const genProgression = (firstStep, step) => {
+const genProgression = (firstElement, step) => {
   const inter = (acc, i) => {
     if (i > progressionLength) {
       return acc;
     }
-    acc[i] = firstStep + step * i;
-    return inter(acc, i + 1);
+    return inter([...acc, (firstElement + step * i)], i + 1);
   };
-  return inter([], 1);
+  return inter([], 0);
 };
 
 export default () => {
   const message = 'What number is missing in the progression?';
   const genTest = () => {
-    const firstStepOfProgression = genNumber(0, 10);
-    const sterOfProgression = genNumber(0, 10);
-    const progression = genProgression(firstStepOfProgression, sterOfProgression);
-    const numIndexHide = genNumber(0, progressionLength);
-    const answer = String(progression[numIndexHide]);
-    progression[numIndexHide] = '..';
+    const firstElemOfProgression = genNumber(0, 10);
+    const stepOfProgression = genNumber(0, 10);
+    const progression = genProgression(firstElemOfProgression, stepOfProgression);
+
+    const hiddenElementIndex = genNumber(0, progressionLength);
+    const answer = String(progression[hiddenElementIndex]);
+    progression[hiddenElementIndex] = '..';
     const question = progression.join(' ');
+
     return [question, answer];
   };
+
   runGames(genTest, message);
 };
