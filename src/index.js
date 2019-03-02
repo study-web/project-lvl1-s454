@@ -9,7 +9,7 @@ export default (genTest, gameMessage) => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!\n`);
 
-  const inter = (i) => {
+  const iter = (i) => {
     if (i >= countTests) {
       console.log(`Congratulations, ${userName}!`);
       return;
@@ -25,7 +25,7 @@ export default (genTest, gameMessage) => {
     }
 
     console.log('Correct!');
-    inter(i + 1);
+    iter(i + 1);
   };
-  inter(0);
+  iter(0);
 };

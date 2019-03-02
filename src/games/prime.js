@@ -5,16 +5,16 @@ const isPrime = (number) => {
   if (number < 3) {
     return number === 2 ? 1 : 0;
   }
-  const inter = (i) => {
+  const iter = (i) => {
     if (number % i === 0) {
       return false;
     }
     if (i > number / 2) {
       return true;
     }
-    return inter(i + 1);
+    return iter(i + 1);
   };
-  return inter(2);
+  return iter(2);
 };
 
 export default () => {

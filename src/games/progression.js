@@ -4,13 +4,13 @@ import genNumber from '../utils';
 const progressionLength = 10;
 
 const genProgression = (firstElement, step) => {
-  const inter = (acc, i) => {
+  const iter = (acc, i) => {
     if (i > progressionLength) {
       return acc;
     }
-    return inter([...acc, (firstElement + step * i)], i + 1);
+    return iter([...acc, (firstElement + step * i)], i + 1);
   };
-  return inter([], 0);
+  return iter([], 0);
 };
 
 export default () => {
